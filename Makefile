@@ -24,8 +24,19 @@ build: ## make the docker image
 	docker build -t frank378:mlbot \
 		--build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') . | tee .buildlog
 
-clean: ## clean up your mess
+clean: ## Clean up your mess
 	rm -rf _build *.egg-info
+	@find . -name '*.pyc' | xargs rm -rf
+	@find . -name '__pycache__' | xargs rm -rf
+	@for trash in *.aux *.bbl *.blg *.lof *.log *.lot *.out *.pdf *.synctex.gz *.toc ; do \
+		if [ -f "$$trash" ]; then \
+			rm -rf $$trash ; \
+			rm frontmatter/$$trash ; \
+			rm mainmatter/$$trash ; \
+			rm backmatter/$$trash ; \
+		fi ; \
+	done
+
 
 print-error:
 	@:$(call check_defined, MSG, Message to print)
@@ -48,8 +59,8 @@ test: ## run all test cases
 .PHONY: paper
 paper: ## generate the PDF
 	@if [ ! -d /nix ]; then  echo "***> Where is your nix installation? <***" && exit 1; fi
-	latexmk -pdf -synctex=1 -shell-escape main
-	bibtex main
-	#makeindex main
-	latexmk -pdf -synctex=1 -shell-escape main
+	latexmk -pdf -synctex=1 -shell-escape cloudlab
+	bibtex cloudlab
+	#makeindex cloudlab
+	latexmk -pdf -synctex=1 -shell-escape cloudlab
 
