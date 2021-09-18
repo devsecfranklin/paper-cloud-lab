@@ -1,3 +1,4 @@
-# 
+# A Cloud Native Security Lab
 
-* [Downlaod the paper](main.pdf)
+* [Download the paper](cloudlab.pdf)
+
