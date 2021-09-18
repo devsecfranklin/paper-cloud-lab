@@ -1,0 +1,25 @@
+<mxfile host="65bd71144e">
+    <diagram id="m6KFhbJN6vqtIlXu8ggH" name="model-design">
+        <mxGraphModel dx="1063" dy="806" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="6" value="Model Design" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.window;align=left;verticalAlign=top;spacingLeft=8;strokeColor2=#008cff;strokeColor3=#c4c4c4;mainText=;fontSize=17;labelBackgroundColor=none;" vertex="1" parent="1">
+                    <mxGeometry width="1100" height="850" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Container" style="swimlane;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="150" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Preprocessor&lt;br&gt;Normalizer&lt;br&gt;Storage Handler" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="8">
+                    <mxGeometry x="42.5" y="90" width="115" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Container" style="swimlane;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="150" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Collector" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="10">
+                    <mxGeometry x="56" y="90" width="90" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

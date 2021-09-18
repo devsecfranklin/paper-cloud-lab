@@ -1,0 +1,13 @@
+franklin ~/gke: tkn pr ls  
+NAME              STARTED        DURATION     STATUS
+gh-pr-run-ncwrr   1 hour ago     1 minute     Succeeded
+gh-pr-run-vhrvs   2 hours ago    1 minute     Succeeded
+gh-pr-run-q6szq   3 hours ago    1 minute     Succeeded
+gh-pr-run-8vn22   6 hours ago    1 minute     Succeeded
+gh-pr-run-h7twc   14 hours ago   17 seconds   Failed
+gh-pr-run-74wm7   21 hours ago   1 minute     Succeeded
+gh-pr-run-tqlfg   1 day ago      1 minute     Succeeded
+gh-pr-run-xs52f   1 day ago      1 minute     Succeeded
+gh-pr-run-xtdz6   1 day ago      1 minute     Succeeded
+gh-pr-run-w2zn7   1 day ago      1 minute     Succeeded
+

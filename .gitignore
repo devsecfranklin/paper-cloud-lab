@@ -1,0 +1,46 @@
+_build
+.buildlog
+
+*.aux
+*.bbl
+*.blg
+*.err
+*.fls
+*.glo
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.lua
+*.out
+*.pyg
+*.synctex.gz
+*.toc
+*.verbatim
+core
+
+## Bibliography auxiliary files (bibtex/biblatex/biber):
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+## Build tool auxiliary files:
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+## Auxiliary and intermediate files from other packages:
+# algorithms
+*.alg
+*.loa
+
+
