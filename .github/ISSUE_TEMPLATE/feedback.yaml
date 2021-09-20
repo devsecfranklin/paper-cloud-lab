@@ -23,7 +23,7 @@ body:
       label: Your thoughts?
       description: Enter your feedback
       placeholder: Tell us what you see!
-      value: "Your weel-considered feedback is appreciated! You can also paste error logs here."
+      value: "Your well-considered feedback is appreciated! You can also paste error logs here."
     validations:
       required: true
   - type: dropdown

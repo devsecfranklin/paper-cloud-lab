@@ -69,9 +69,14 @@
 
 %\usepackage[verbose]{wrapfig} % wrap text around image
 
+% color table cells
+\usepackage[table]{xcolor,colortbl}% http://ctan.org/pkg/xcolor
+\definecolor{myblue}{HTML}{4285F4}
+
 % Headers and footers
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{A Cloud Native Security Lab}
-%\lfoot{}
+\lfoot{\tiny{September 7, 2021}}
+\rfoot{\tiny{version: 0.1}}
