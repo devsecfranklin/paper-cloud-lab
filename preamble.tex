@@ -10,10 +10,10 @@
 %\usepackage{fontawesome5} % The Creative Commons icons
 
 %%% DRAFT watermark %%%
-\usepackage{draftwatermark}
-\SetWatermarkText{DRAFT}
-\SetWatermarkScale{5.1}
-\SetWatermarkLightness{0.8}
+%\usepackage{draftwatermark}
+%\SetWatermarkText{DRAFT}
+%\SetWatermarkScale{5.1}
+%\SetWatermarkLightness{0.8}
 
 \usepackage{xcolor} % \textcolor{red}{text} will be red for notes
 \definecolor{lightgray}{gray}{0.6}
@@ -71,10 +71,13 @@
 
 \definecolor{myblue}{HTML}{4285F4} % color table cells
 
+\usepackage[tablegrid]{vhistory} % version history package
+
 % Headers and footers
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{A Cloud Native Security Lab}
 \lfoot{\tiny{September 7, 2021}}
-\rfoot{\tiny{version: 0.1}}
+\rfoot{\tiny{version: \vhCurrentVersion}}
+
