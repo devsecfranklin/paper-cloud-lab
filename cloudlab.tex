@@ -105,6 +105,7 @@ GitHub repositories that have been "on-boarded" to the project have certain ``ac
 \end{raggedright}
 \vspace{2mm}
 
+
 \justifying
 Note that there is also a \href{https://docs.github.com/en/developers/webhooks-and-events/webhooks/about-webhooks}{webhook} to make the CI pipeline
 aware of each commit and kick off a test and build cycle.
@@ -113,8 +114,9 @@ aware of each commit and kick off a test and build cycle.
 \ptitle{Kubernetes Clusters}
 \vspace{2mm}
 \justifying
-Two clusters are deployed with the Google Kubernetes Engine (GKE). The ``gke'' cluster hosts the Tekton CI pipeline.
+Two clusters are deployed with the Google Kubernetes Engine (GKE). The ``gke'' cluster hosts the \href{https://tekton.dev/}{Tekton CI pipeline}.
 The ``alpha'' cluster is used for machine learning experimentation.
+
 
 \justifying
 Pipeline runs can be viewed and managed through a graphical interface that is well suited for development teams. There is
@@ -163,20 +165,24 @@ following list of topics.
 
 Training materials derived from lab construction and operation are easily within reach of PS engineers. 
 
+
 \section{\label{sec:CI}Continuous Integration}
+
 
 Keeping internal and external build pipelines secure, as well as scanning work products that traverse these pipelines is highly desirable. To that end, a
 fully operational Cloud Native Continuous Integration pipeline has been implemented in the lab.
 
 The pipeline can ingest a code base from a public repo, or a private repo with proper credentials. The ``containerizer'' repo demonstrates the ability
 to collect files from a repository, bundle it with requisite command line tools, test cases, and other necessities, and ship the image to the gcr.io container
-registry at the conclusion of a successful pipeline run. a pipeline run refers to a set of test cases managed and executed by Tekton.
+registry at the conclusion of a successful pipeline run. A pipeline run refers to a set of test cases managed and executed by \href{https://tekton.dev/}{Tekton}.
 
-\begin{figure}[ht]
+
+\begin{figure}[H]
 	\includegraphics[width=12cm]{pr1.png}
 	\caption{Tekton automated pipeline run results in a GitHub comment}
 	\label{pr}
 \end{figure}
+
 
 Consider figure \ref{pr}. The ``Renovate'' bot detects an out of date or insecure dependency. A pull request is opened by the Renovate bot. 
 Next, ``ps-cloudbot'' GCP cloud function is notified of the new pull request via webhook. The second bot places a label on the pull request to indicate
@@ -186,18 +192,18 @@ project members that it has been accepted by the CI pipeline. A set of test case
 results are returned to the pull request in a second comment. There is also a link to the container image in the container registry. Although the pull
 request is merged manually in this instance, the workflow could be modified to approve and merge the pull request with no human interaction whatsoever.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\includegraphics[width=12cm]{pr2.png}
 	\caption{Bridgecrew integration with pull request automation}
 	\label{pr2}
 \end{figure}
+
 
 In addition to the ability to scan for dependencies which are out of date or have vulnerabilities of note, we can perform automated security scanning
 of the code base as seen in figure \ref{pr2}. As before, the Renovate bot has detected the use of an out of date Docker base image for Golang. Because
 the Dockerfile is updated as part of this pull request, \href{https://docs.bridgecrew.io/docs}{Bridgecrew} scans the file and triggers on misconfigurations that may lead to security issues.
 The results of the scans and the issues are noted in the pull request comments. Automated remediation and merging of these issues may be possible in
 some cases.
-
 
 
 \section{\label{sec:Summary}Summary}
@@ -213,6 +219,11 @@ Future goals for the lab project might include, but are not limited to the follo
 \end{raggedright}
 \vspace{2mm}
 
+
+\clearpage
+\begin{versionhistory}
+ 	\vhEntry{v0.1}{Sept. 7th, 2021}{Franklin Diaz}{Initial Draft}
+\end{versionhistory}
 \nocite{*}
 \bibliographystyle{plain}
 \bibliography{mybib.bib}
