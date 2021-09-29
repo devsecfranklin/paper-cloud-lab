@@ -11,3 +11,4 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: cloudlab.tex
+          args: '-pdf -file-line-error -interaction=nonstopmode -shell-escape'
