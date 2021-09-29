@@ -1,7 +1,4 @@
 name: Build LaTeX document
-on: 
-    tags:
-        - '*.*.*' # semantic versioning 
 jobs:
   build_latex:
     runs-on: ubuntu-latest
