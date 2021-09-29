@@ -1,4 +1,6 @@
-name: Build LaTeX document
+name: Build Cloud Lab LaTeX document
+on:
+  - pull_request
 jobs:
   build_latex:
     runs-on: ubuntu-latest
