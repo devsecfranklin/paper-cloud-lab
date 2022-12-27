@@ -275,7 +275,7 @@ request is merged manually in this instance, the workflow could be modified to a
 In addition to the ability to scan for dependencies which are out of date or have vulnerabilities of note, we can perform automated security scanning
 of the code base as seen in figure \ref{pr2}. As before, the Renovate bot has detected the use of an out of date Docker base image for Golang. Because
 the Dockerfile is updated as part of this pull request, \href{https://docs.bridgecrew.io/docs}{Bridgecrew} scans the file and triggers on misconfigurations that may lead to security issues.
-The results of the scans and the issues are noted in the pull request comments. Automated remediation and merging of these issues may be possible in
+The results of the scans and the issues found are noted in the pull request comments. Automated remediation and merging of these issues may be possible in
 some cases.
 
 
@@ -296,6 +296,7 @@ Future goals for the lab project might include, but are not limited to the follo
 \clearpage
 \begin{versionhistory}
  	\vhEntry{v0.1}{Sept. 7th, 2021}{Franklin Diaz}{Initial Draft}
+ 	\vhEntry{v0.2}{December 27th, 2022}{Franklin Diaz}{GKE updates}
 \end{versionhistory}
 \nocite{*}
 \bibliographystyle{plain}
