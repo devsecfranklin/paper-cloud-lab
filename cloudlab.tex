@@ -125,7 +125,7 @@ The code base for the lab is broken down into several GitHub repositories, more 
 \vspace{2mm}
 
 \justifying
-GitHub repositories that have been "on-boarded" to the project have certain ``actions'' included.
+GitHub repositories that have been ``on-boarded'' to the project have certain ``actions'' included.
 
 \begin{raggedright}
 	\begin{enumerate}
@@ -157,15 +157,19 @@ also the ability to manage pipeline runs and their requisite tasks using standar
 	\lstinputlisting{code/tkn-run.txt}
 \end{mybox}
 \vspace{2mm}
+
 \ptitle{GCR Private Container Repository}
 \vspace{2mm}
+
 \justifying
 To date there are about 15 GitHub repositories that are integrated with the CI pipeline outlined in this paper. Each commit
 to a pull request causes the CI pipeline to generate a Docker image. These Docker images 
 are \href{https://cloud.google.com/container-registry/}{stored in a private GCR location}.
 \vspace{2mm}
+
 \ptitle{Panorama Management}
 \vspace{2mm}
+
 \justifying
 Panorama is a key component in deployment and maintenance of Kubernetes clusters and CN Series firewalls. Currently we have
 two virtual Panorama devices deployed in a high availability (HA) configuration.
@@ -180,10 +184,60 @@ are still frequently used to augment the capabilities of this new family of plug
 \section{\label{sec:SRV}Serverless Functions}
 \vspace{2mm}
 
-\ptitle{Github Webhook}
+\justifying
+Google Cloud offers \href{https://cloud.google.com/functions/docs/concepts/overview}{Cloud Functions}, among other serverless computing offerings. This is a good set of patterns to learn and comes up often
+in security infrastructure work since organizations can use it to run jobs at a lower cost. Securing the
+webhooks and connection between cloud functions and the VPC the GKE cluster is in is an important
+factor in deployments. Making XML or other sorts of API calls is often used to pass data between management platforms, ticketing systems, custom applications, and so on.
+\vspace{2mm}
+
+\justifying
+\href{https://github.com/devsecfranklin/workshop-codemash-2023}{Here is a full working example} of how to integrate Github, Cloud Functions, and GKE clusters in the manner described in this section.
+
+\subsection{Github Webhook}
+\vspace{2mm}
+
+\justifying
+The Github webhook can be combined with a set of GCP credentials stored as a ``repository secret'' in
+a repository. Combined with \href{https://github.com/devsecfranklin/workshop-codemash-2023/blob/main/.github/workflows/cloudbot-call.yml}{a Github action as a triggering mechanism}, we have a powerful and flexible
+method to combine systems into a more intricate Continuous Integration and testing pipeline.
+
+\begin{figure}[H]
+	\includegraphics[width=12cm]{webhook1.png}
+	\caption{Webhook configuration settings in Github}
+	\label{pr}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=12cm]{webhook2.png}
+	\caption{Check only this box in the webhook settings}
+	\label{pr}
+\end{figure}
 
 
-\ptitle{Connecting Serverless to GKE}
+\subsection{Connecting Serverless to GKE}
+\vspace{2mm}
+
+\justifying
+A network peering is created between the Cloud Function and the VPC that the GKE cluster resides in.
+This allows the serverless function application to make calls to a containerized deployment, such as
+a Node application.
+\vspace{2mm}
+
+\begin{mybox}{\thetcbcounter: Example YAML for a cloudbot service}
+	\lstinputlisting{code/cloudbot-service.yaml}
+\end{mybox}
+\vspace{2mm}
+
+\begin{mybox}{\thetcbcounter: Example deployment YAML for a cloudbot}
+	\lstinputlisting{code/deployment.yaml}
+\end{mybox}
+\vspace{2mm}
+
+\begin{mybox}{\thetcbcounter: Example Dockerfile for a cloudbot pod in GKE}
+	\lstinputlisting{code/Dockerfile}
+\end{mybox}
+\vspace{2mm}
 
 \section{\label{sec:CI}Continuous Integration}
 \vspace{2mm}
