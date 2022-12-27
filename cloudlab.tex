@@ -58,6 +58,32 @@ management, and weaknesses of the items listed here.
 \end{raggedright}
 \vspace{2mm}
 
+
+\section{\label{sec:LO}Learning Objectives}
+\vspace{2mm}
+
+\justifying
+Building and operating this lab is meant to foster learning. It may be beneficial for engineers to focus on some or all of the
+following list of topics.
+
+\begin{raggedright}
+	\begin{enumerate}
+		\item Deployment and operation of CN Series firewalls.
+		\item Kubernetes role based access control (RBAC) and security.
+		\item Developing serverless functions in Python.
+		\item ML/AI pipeline, containerized workloads, and their security.
+		\item Containers and container security.
+		\item Automation.
+		\item Testing perspectives including Policy as Code, Security as Code, etc.
+		\item CI/CD Pipelines and security.
+	\end{enumerate}
+\end{raggedright}
+\vspace{2mm}
+
+\justifying
+Training materials derived from lab construction and operation are easily within reach of PS engineers. 
+
+
 \section{\label{sec:Lab}Lab Configuration Details}
 \vspace{2mm}
 \justifying
@@ -97,6 +123,7 @@ The code base for the lab is broken down into several GitHub repositories, more 
 \vspace{2mm}
 \ptitle{GitHub Actions}
 \vspace{2mm}
+
 \justifying
 GitHub repositories that have been "on-boarded" to the project have certain ``actions'' included.
 
@@ -144,34 +171,22 @@ Panorama is a key component in deployment and maintenance of Kubernetes clusters
 two virtual Panorama devices deployed in a high availability (HA) configuration.
 
 \justifying
-Palo Alto networks has historically maintained serverless functions, for example in AWS Lambda, for firewall ``auto-scaling'' tasks. This has since been
+Palo Alto Networks has historically maintained serverless functions, for example in AWS Lambda, for firewall ``auto-scaling'' tasks. This has since been
 replaced by a set of official Panorama ``plug-ins'' that can be downloaded to PanOS devices. Lambda and Cloud functions
 are still frequently used to augment the capabilities of this new family of plug-ins.
 \vspace{2mm}
-\section{\label{sec:LO}Learning Objectives}
-\vspace{2mm}
-Building and operating this lab is meant to foster learning. It may be beneficial for engineers to focus on some or all of the
-following list of topics.
 
-\begin{raggedright}
-	\begin{enumerate}
-		\item Deployment and operation of CN Series firewalls.
-		\item Kubernetes role based access control (RBAC) and security.
-		\item Developing serverless functions in Python.
-		\item ML/AI pipeline, containerized workloads, and their security.
-		\item Containers and container security.
-		\item Automation.
-		\item Testing perspectives including Policy as Code, Security as Code, etc.
-		\item CI/CD Pipelines and security.
-	\end{enumerate}
-\end{raggedright}
+
+\section{\label{sec:SRV}Serverless Functions}
 \vspace{2mm}
 
-Training materials derived from lab construction and operation are easily within reach of PS engineers. 
+\ptitle{Github Webhook}
 
+
+\ptitle{Connecting Serverless to GKE}
 
 \section{\label{sec:CI}Continuous Integration}
-
+\vspace{2mm}
 
 Keeping internal and external build pipelines secure, as well as scanning work products that traverse these pipelines is highly desirable. To that end, a
 fully operational Cloud Native Continuous Integration pipeline has been implemented in the lab.
