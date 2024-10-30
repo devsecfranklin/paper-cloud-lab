@@ -7,4 +7,3 @@
 ![Cloudy](images/cloudlab.png)
 
 * [Bibsonomy Entry](https://www.bibsonomy.org/bibtex/22b0c5d623f76a3be1a6de91a74b5524b/devsecfranklin)
-

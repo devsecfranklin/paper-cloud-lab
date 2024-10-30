@@ -13,27 +13,27 @@
 
 \begin{displayquote}
 	\emph{Cloud-native technologies empower organizations to build and run scalable applications in modern, dynamic environments such as public,
-	private, and hybrid clouds.}
-	
+		private, and hybrid clouds.}
+
 	\href{https://www.cncf.io/about/who-we-are/}{Cloud Native Computing Foundation}
 \end{displayquote}
 
 \section{\label{sec:Start}A Cloud Native Security Lab}
 \vspace{2mm}
 \justifying
-There is a proliferation of new and constantly evolving Public Cloud providers, tools, tool chains, and whole 
+There is a proliferation of new and constantly evolving Public Cloud providers, tools, tool chains, and whole
 ``cloud based'' development and operations ecosystems. There is a need to understand and adapt to the ``GitOps'' paradigm and the
-business opportunities this fundamental shift presents. There is no disputing the fact that this shift is well underway\cite{CloudShift}. 
+business opportunities this fundamental shift presents. There is no disputing the fact that this shift is well underway\cite{CloudShift}.
 
 \justifying
 The ``Cloudlab'' is a private lab environment for security research, testing, and training. The lab is ``Cloud Native'' in the sense that it
 adheres to \href{https://www.cloudbees.com/gitops/what-is-gitops}{GitOps practices}. The GitOps methodology facilitates storage, review, and
-maintenance of the lab Infrastructure as Code. The lab is currently comprised of two main Pipelines. The first of these is dedicated to Continuous
-Integration. The second pipeline facilitates \href{https://cml.dev/doc}{Continuous Machine Learning}, or CML\cite{books/mit/026233758}.
+maintenance of the lab Infrastructure as Code. The lab is currently comprised of two main Pipelines. The first of these is dedicated to
+Continuous Integration. The second pipeline facilitates \href{https://cml.dev/doc}{Continuous Machine Learning}, or CML\cite{books/mit/026233758}.
 
 \justifying
-As security practitioners, it is important for us to understand the infrastructure and applications being built in the public clouds as a first 
-step to making things more secure.
+As security practitioners, it is important for us to understand the infrastructure and applications being built in the public
+clouds as a first step to making things more secure.
 
 \section{\label{sec:Project}Project Goals}
 \vspace{2mm}
@@ -44,16 +44,16 @@ management, and weaknesses of the items listed here.
 \begin{raggedright}
 	\begin{enumerate}
 		\item Provisioning \href{https://docs.paloaltonetworks.com/cn-series.html}{Palo Alto Networks CN-Series firewall} products, integrating
-		them with \href{https://www.tigera.io/project-calico/}{Calico} and protecting containerized workloads (Kubernetes ``pods'').
+		      them with \href{https://www.tigera.io/project-calico/}{Calico} and protecting containerized workloads (Kubernetes ``pods'').
 		\item Research containerized deployments, workloads and security.
 		\item Demonstrate \href{https://github.com/probot/probot}{``automation bots'' and how they interact with a GitHub repository}. Extending a
-		revision control platform (GitHub in this case) is rather common in large organizations.
+		      revision control platform (GitHub in this case) is rather common in large organizations.
 		\item Integration of \href{https://docs.bridgecrew.io/docs}{Bridgecrew ``Security as Code'' tooling} with GitHub repositories.
 		\item Develop and demonstrate ``serverless cloud function'' expertise (GCP Cloud Functions in this case).
 		\item Develop and use a cloud native Continuous Integration build pipeline. The output of this pipeline is a Docker image that is stored
-		in gcr.io. These images include a fully contained set of tools, documentation and Terraform code for customer deployments.
-		\item Demonstrate Policy as Code concepts using \href{https://www.accurics.com/products/terrascan/}{Terratest} and 
-		\href{https://kyverno.io/}{Kyverno}.
+		      in gcr.io. These images include a fully contained set of tools, documentation and Terraform code for customer deployments.
+		\item Demonstrate Policy as Code concepts using \href{https://www.accurics.com/products/terrascan/}{Terratest} and
+		      \href{https://kyverno.io/}{Kyverno}.
 	\end{enumerate}
 \end{raggedright}
 \vspace{2mm}
@@ -101,9 +101,9 @@ The configuration files and code used to build the lab are stored on GitHub. The
 The lab is intended to serve as a proof of concept as well as provide a teaching and training platform.
 
 \begin{figure}[ht]
-  \includegraphics[width=12cm]{cloudlab.png}
-  \caption{High Level Lab Design Diagram}
-  \label{design}
+	\includegraphics[width=12cm]{cloudlab.png}
+	\caption{High Level Lab Design Diagram}
+	\label{design}
 \end{figure}
 
 \justifying
@@ -113,22 +113,22 @@ A detailed description of the five main blocks seen in figure \ref{design} follo
 \ptitle{GitHub Repositories}
 
 \justifying
-The code base for the lab is broken down into several GitHub repositories, more or less around the functional area. 
+The code base for the lab is broken down into several GitHub repositories, more or less around the functional area.
 
 \begin{table}[ht]
-    \centering
+	\centering
 	\begin{tabular}{| p{0.35\linewidth} | p{0.6\linewidth} |} \hline
-		\cellcolor{myblue}\textcolor{white}{Repo Name} & \cellcolor{myblue}\textcolor{white}{Purpose} \\\hline
-		bot-cloudbot     & A custom Python 3.9 GCP Cloud Function for GitHub pull request task automation.\\\hline
-		bot-ml-container & An experimental containerized machine learning model.\\\hline
-		gke-cluster      & Infra as Code files for GKE cluster, YAML files for \href{https://tekton.dev/}{Tekton CI pipeline}. CN Series firewall nodes.\\\hline
-		ps-containerizer & An `invisible shim'' with a Docker image for each ``public cloud'' VM-Series Terraform module development repo. Allows PRs to be
-		ingested into Tekton CI pipeline without any integrations with the source repository.\\\hline
-		ps-devsecops-alpha & IaC files for Alpha K8s cluster.\\\hline
-		python-project-template & Python project template for writing serverless code in AWS Lambda and GCP cloud functions.\\\hline
+		\cellcolor{myblue}\textcolor{white}{Repo Name} & \cellcolor{myblue}\textcolor{white}{Purpose}                                                                                     \\\hline
+		bot-cloudbot                                   & A custom Python 3.9 GCP Cloud Function for GitHub pull request task automation.                                                  \\\hline
+		bot-ml-container                               & An experimental containerized machine learning model.                                                                            \\\hline
+		gke-cluster                                    & Infra as Code files for GKE cluster, YAML files for \href{https://tekton.dev/}{Tekton CI pipeline}. CN Series firewall nodes.    \\\hline
+		ps-containerizer                               & An `invisible shim'' with a Docker image for each ``public cloud'' VM-Series Terraform module development repo. Allows PRs to be
+		ingested into Tekton CI pipeline without any integrations with the source repository.                                                                                             \\\hline
+		ps-devsecops-alpha                             & IaC files for Alpha K8s cluster.                                                                                                 \\\hline
+		python-project-template                        & Python project template for writing serverless code in AWS Lambda and GCP cloud functions.                                       \\\hline
 	\end{tabular}
 	\caption{Project Codebase - GitHub Repositories}
-    \label{mytable:1}
+	\label{mytable:1}
 \end{table}
 \vspace{2mm}
 \ptitle{GitHub Actions}
@@ -139,9 +139,9 @@ GitHub repositories that have been ``on-boarded'' to the project have certain ``
 
 \begin{raggedright}
 	\begin{enumerate}
-        \item \href{https://docs.bridgecrew.io/docs}{Bridgecrew} is used to scan all commits to all open pull requests.
-        \item Whitesource Renovate is used to track keep project dependencies up to date and secure.
-        \item Another GitHub action defines the parameters of the GCP project and helps the ``ps-cloudbot'' with pull request  maintenance tasks.
+		\item \href{https://docs.bridgecrew.io/docs}{Bridgecrew} is used to scan all commits to all open pull requests.
+		\item Whitesource Renovate is used to track keep project dependencies up to date and secure.
+		\item Another GitHub action defines the parameters of the GCP project and helps the ``ps-cloudbot'' with pull request  maintenance tasks.
 	\end{enumerate}
 \end{raggedright}
 \vspace{2mm}
@@ -173,7 +173,7 @@ also the ability to manage pipeline runs and their requisite tasks using standar
 
 \justifying
 To date there are about 15 GitHub repositories that are integrated with the CI pipeline outlined in this paper. Each commit
-to a pull request causes the CI pipeline to generate a Docker image. These Docker images 
+to a pull request causes the CI pipeline to generate a Docker image. These Docker images
 are \href{https://cloud.google.com/container-registry/}{stored in a private GCR location}.
 \vspace{2mm}
 
@@ -195,21 +195,25 @@ are still frequently used to augment the capabilities of this new family of plug
 \vspace{2mm}
 
 \justifying
-Google Cloud offers \href{https://cloud.google.com/functions/docs/concepts/overview}{Cloud Functions}, among other serverless computing offerings. This is a good set of patterns to learn and comes up often
+Google Cloud offers \href{https://cloud.google.com/functions/docs/concepts/overview}{Cloud Functions}, among other serverless computing offerings.
+This is a good set of patterns to learn and comes up often
 in security infrastructure work since organizations can use it to run jobs at a lower cost. Securing the
 webhooks and connection between cloud functions and the VPC the GKE cluster is in is an important
-factor in deployments. Making XML or other sorts of API calls is often used to pass data between management platforms, ticketing systems, custom applications, and so on.
+factor in deployments. Making XML or other sorts of API calls is often used to pass data between management platforms, ticketing systems,
+custom applications, and so on.
 \vspace{2mm}
 
 \justifying
-\href{https://github.com/devsecfranklin/workshop-codemash-2023}{Here is a full working example} of how to integrate Github, Cloud Functions, and GKE clusters in the manner described in this section.
+\href{https://github.com/devsecfranklin/workshop-codemash-2023}{Here is a full working example} of how to integrate Github, Cloud Functions,
+and GKE clusters in the manner described in this section.
 
 \subsection{Github Webhook}
 \vspace{2mm}
 
 \justifying
 The Github webhook can be combined with a set of GCP credentials stored as a ``repository secret'' in
-a repository. Combined with \href{https://github.com/devsecfranklin/workshop-codemash-2023/blob/main/.github/workflows/cloudbot-call.yml}{a Github action as a triggering mechanism}, we have a powerful and flexible
+a repository. Combined with \href{https://github.com/devsecfranklin/workshop-codemash-2023/blob/main/.github/workflows/cloudbot-call.yml}{a Github action as a triggering mechanism},
+we have a powerful and flexible
 method to combine systems into a more intricate Continuous Integration and testing pipeline.
 
 \begin{figure}[H]
@@ -267,7 +271,7 @@ registry at the conclusion of a successful pipeline run. A pipeline run refers t
 \end{figure}
 
 
-Consider figure \ref{pr}. The ``Renovate'' bot detects an out of date or insecure dependency. A pull request is opened by the Renovate bot. 
+Consider figure \ref{pr}. The ``Renovate'' bot detects an out of date or insecure dependency. A pull request is opened by the Renovate bot.
 Next, ``ps-cloudbot'' GCP cloud function is notified of the new pull request via webhook. The second bot places a label on the pull request to indicate
 it is performing administrative actions on the pull request. The cloud function might perform other actions such as assigning the pull request to a certain user,
 adding certain users as reviewers, providing documentation, and so on. In this example, the cloud function adds a comment to the pull request to inform
@@ -305,10 +309,10 @@ Future goals for the lab project might include, but are not limited to the follo
 
 \clearpage
 \begin{versionhistory}
- 	\vhEntry{v0.1}{Sept. 7th, 2021}{Franklin Diaz}{Initial Draft}
+	\vhEntry{v0.1}{Sept. 7th, 2021}{Franklin Diaz}{Initial Draft}
 	\vhEntry{v0.2}{January 29th, 2022}{Franklin Diaz}{incorporate feedback}
 	\vhEntry{v0.3}{January 29th, 2022}{Franklin Diaz}{pin release for ORCID}
- 	\vhEntry{v0.4}{December 27th, 2022}{Franklin Diaz}{GKE updates}
+	\vhEntry{v0.4}{December 27th, 2022}{Franklin Diaz}{GKE updates}
 \end{versionhistory}
 \nocite{*}
 \bibliographystyle{plain}
