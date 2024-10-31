@@ -22,13 +22,16 @@ ENV USER_NAME=franklin \
 # %%%%% USER SETUP %%%%%
 RUN useradd -l -u ${USER_UID} -r -g 0 -d ${APP_ROOT} -s /bin/bash -c "${USER_NAME} user" ${USER_NAME} 
 COPY . ${APP_ROOT}
-RUN chown -R ${USER_UID}:0 ${APP_ROOT} \
-  && chmod -R g=u ${APP_ROOT}
+
 
 # %%%%% GENERATE DOCUMENT %%%%%
 RUN cd ${APP_ROOT} \
-  && time \
-  && make docker \
-  time
+    && time \
+    && make docker \
+    && time
+
+# Chown files in local home dir
+RUN chown -R ${USER_NAME}:${USER_UID} ${APP_ROOT} \
+    && chmod -R g=u ${APP_ROOT}
 
 CMD latexmk -pvc -pdf -view=none -silent -time cloudlab.tex
