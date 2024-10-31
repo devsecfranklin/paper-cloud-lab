@@ -15,19 +15,15 @@ RUN apt install -y texlive-full python3-pygments latexmk
 ENV DEBIAN_FRONTEND noninteractive
 ENV PYTHONUNBUFFERED 1
 ENV APP_ROOT=/home/franklin
-COPY . ${APP_ROOT}
 WORKDIR ${APP_ROOT}
 ENV USER_NAME=franklin \
-    USER_UID=9001 \
-    APP_HOME=${APP_ROOT}/src  \
-    PATH=$PATH:${APP_ROOT}/bin
+    USER_UID=9001
 
 # %%%%% USER SETUP %%%%%
-RUN mkdir -p ${APP_HOME} \
-  && chmod -R u+x ${APP_ROOT}/bin
-RUN useradd -l -u ${USER_UID} -r -g 0 -d ${APP_ROOT} -s /bin/bash -c "${USER_NAME} user" ${USER_NAME} && \
-chown -R ${USER_UID}:0 ${APP_ROOT} && \
-chmod -R g=u ${APP_ROOT}
+RUN useradd -l -u ${USER_UID} -r -g 0 -d ${APP_ROOT} -s /bin/bash -c "${USER_NAME} user" ${USER_NAME} 
+COPY . ${APP_ROOT}
+RUN chown -R ${USER_UID}:0 ${APP_ROOT} \
+  && chmod -R g=u ${APP_ROOT}
 
 # %%%%% GENERATE DOCUMENT %%%%%
 RUN cd ${APP_ROOT} \
