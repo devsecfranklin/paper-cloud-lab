@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1
+# THIS IS AN EXAMPLE Dockerfile
 
 FROM node:22-alpine
 

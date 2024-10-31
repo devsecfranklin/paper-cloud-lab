@@ -58,7 +58,6 @@ management, and weaknesses of the items listed here.
 \end{raggedright}
 \vspace{2mm}
 
-
 \section{\label{sec:LO}Learning Objectives}
 \vspace{2mm}
 
@@ -219,13 +218,13 @@ method to combine systems into a more intricate Continuous Integration and testi
 \begin{figure}[H]
 	\includegraphics[width=12cm]{webhook1.png}
 	\caption{Webhook configuration settings in Github}
-	\label{pr}
+	\label{pr3}
 \end{figure}
 
 \begin{figure}[H]
 	\includegraphics[width=12cm]{webhook2.png}
 	\caption{Check only this box in the webhook settings}
-	\label{pr}
+	\label{pr4}
 \end{figure}
 
 
@@ -259,7 +258,7 @@ a Node application.
 Keeping internal and external build pipelines secure, as well as scanning work products that traverse these pipelines is highly desirable. To that end, a
 fully operational Cloud Native Continuous Integration pipeline has been implemented in the lab.
 
-The pipeline can ingest a code base from a public repo, or a private repo with proper credentials. The ``containerizer'' repo demonstrates the ability
+The pipeline can ingest a code base from a public repository, or a private repository with proper credentials. The ``containerizer'' repo demonstrates the ability
 to collect files from a repository, bundle it with requisite command line tools, test cases, and other necessities, and ship the image to the gcr.io container
 registry at the conclusion of a successful pipeline run. A pipeline run refers to a set of test cases managed and executed by \href{https://tekton.dev/}{Tekton}.
 
@@ -267,11 +266,11 @@ registry at the conclusion of a successful pipeline run. A pipeline run refers t
 \begin{figure}[H]
 	\includegraphics[width=12cm]{pr1.png}
 	\caption{Tekton automated pipeline run results in a GitHub comment}
-	\label{pr}
+	\label{pr1}
 \end{figure}
 
 
-Consider figure \ref{pr}. The ``Renovate'' bot detects an out of date or insecure dependency. A pull request is opened by the Renovate bot.
+Consider figure \ref{pr1}. The ``Renovate'' bot detects an out of date or insecure dependency. A pull request is opened by the Renovate bot.
 Next, ``ps-cloudbot'' GCP cloud function is notified of the new pull request via webhook. The second bot places a label on the pull request to indicate
 it is performing administrative actions on the pull request. The cloud function might perform other actions such as assigning the pull request to a certain user,
 adding certain users as reviewers, providing documentation, and so on. In this example, the cloud function adds a comment to the pull request to inform
