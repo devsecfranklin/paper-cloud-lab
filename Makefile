@@ -21,7 +21,7 @@ help:
 	@python3 -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 clean: ## Clean up your mess
-	rm -rf _build *.egg-info
+	rm -rf _build *.egg-info _minted-cloudlab
 	@find . -name '*.pyc' | xargs rm -rf
 	@find . -name '__pycache__' | xargs rm -rf
 	@for trash in *.aux *.bbl *.blg *.fdb_latexmk *.fls *.hst *.lof *.log *.lot *.out *.pdf *.synctex.gz *.toc *.ver; do \
@@ -32,6 +32,7 @@ clean: ## Clean up your mess
 			rm backmatter/$$trash ; \
 		fi ; \
 	done
+	docker system prune -f
 
 compress: ## utility to compress container image
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=cloudlab-compressed.pdf cloudlab.pdf
