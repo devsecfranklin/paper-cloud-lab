@@ -37,6 +37,10 @@ compress: ## utility to compress container image
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=cloudlab-compressed.pdf cloudlab.pdf
 	mv cloudlab-compressed.pdf cloudlab.pdf
 
+docker: ## build container
+	docker build -t ghcr.io/devsecfranklin/paper-cloud-lab .
+	docker run --rm -v $${PWD}:/project -it ghcr.io/devsecfranklin/paper-cloud-lab
+
 print-error:
 	@:$(call check_defined, MSG, Message to print)
 	@echo "$(LRED)$(MSG)$(NC)"
