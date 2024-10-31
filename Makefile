@@ -21,10 +21,10 @@ help:
 	@python3 -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 clean: ## Clean up your mess
-	rm -rf _build *.egg-info
+	rm -rf _build *.egg-info _minted-cloudlab
 	@find . -name '*.pyc' | xargs rm -rf
 	@find . -name '__pycache__' | xargs rm -rf
-	@for trash in *.aux *.bbl *.blg *.lof *.log *.lot *.out *.pdf *.synctex.gz *.toc ; do \
+	@for trash in *.aux *.bbl *.blg *.fdb_latexmk *.fls *.hst *.lof *.log *.lot *.out *.pdf *.synctex.gz *.toc *.ver; do \
 		if [ -f "$$trash" ]; then \
 			rm -rf $$trash ; \
 			rm frontmatter/$$trash ; \
@@ -32,6 +32,15 @@ clean: ## Clean up your mess
 			rm backmatter/$$trash ; \
 		fi ; \
 	done
+	docker system prune -f
+
+compress: ## utility to compress container image
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=cloudlab-compressed.pdf cloudlab.pdf
+	mv cloudlab-compressed.pdf cloudlab.pdf
+
+docker: ## build container
+	docker build -t ghcr.io/devsecfranklin/paper-cloud-lab .
+	docker run --rm -v $${PWD}:/project -it ghcr.io/devsecfranklin/paper-cloud-lab
 
 print-error:
 	@:$(call check_defined, MSG, Message to print)
@@ -54,4 +63,5 @@ paper: ## generate the PDF
 	bibtex cloudlab
 	#makeindex cloudlab
 	latexmk -pdf -synctex=1 -shell-escape cloudlab
+	@$(MAKE) compress
 
