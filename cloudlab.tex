@@ -102,11 +102,11 @@ The lab is intended to serve as a proof of concept as well as provide a teaching
 \begin{figure}[ht]
 	\includegraphics[width=12cm]{cloudlab.png}
 	\caption{High Level Lab Design Diagram}
-	\label{design}
+	\label{fig:design}
 \end{figure}
 
 \justifying
-A detailed description of the five main blocks seen in figure \ref{design} follows.
+A detailed description of the five main blocks seen in figure \ref{fig:design} follows.
 
 \newpage
 \ptitle{GitHub Repositories}
@@ -218,13 +218,13 @@ method to combine systems into a more intricate Continuous Integration and testi
 \begin{figure}[H]
 	\includegraphics[width=12cm]{webhook1.png}
 	\caption{Webhook configuration settings in Github}
-	\label{pr3}
+	\label{fig:pr3}
 \end{figure}
 
 \begin{figure}[H]
 	\includegraphics[width=12cm]{webhook2.png}
 	\caption{Check only this box in the webhook settings}
-	\label{pr4}
+	\label{fig:pr4}
 \end{figure}
 
 
@@ -266,11 +266,10 @@ registry at the conclusion of a successful pipeline run. A pipeline run refers t
 \begin{figure}[H]
 	\includegraphics[width=12cm]{pr1.png}
 	\caption{Tekton automated pipeline run results in a GitHub comment}
-	\label{pr1}
+	\label{fig:pr1}
 \end{figure}
 
-
-Consider figure \ref{pr1}. The ``Renovate'' bot detects an out of date or insecure dependency. A pull request is opened by the Renovate bot.
+Consider figure \ref{fig:pr1}. The ``Renovate'' bot detects an out of date or insecure dependency. A pull request is opened by the Renovate bot.
 Next, ``ps-cloudbot'' GCP cloud function is notified of the new pull request via webhook. The second bot places a label on the pull request to indicate
 it is performing administrative actions on the pull request. The cloud function might perform other actions such as assigning the pull request to a certain user,
 adding certain users as reviewers, providing documentation, and so on. In this example, the cloud function adds a comment to the pull request to inform
@@ -281,12 +280,12 @@ request is merged manually in this instance, the workflow could be modified to a
 \begin{figure}[H]
 	\includegraphics[width=12cm]{pr2.png}
 	\caption{Bridgecrew integration with pull request automation}
-	\label{pr2}
+	\label{fig:pr2}
 \end{figure}
 
 
 In addition to the ability to scan for dependencies which are out of date or have vulnerabilities of note, we can perform automated security scanning
-of the code base as seen in figure \ref{pr2}. As before, the Renovate bot has detected the use of an out of date Docker base image for Golang. Because
+of the code base as seen in figure \ref{fig:pr2}. As before, the Renovate bot has detected the use of an out of date Docker base image for Golang. Because
 the Dockerfile is updated as part of this pull request, \href{https://docs.bridgecrew.io/docs}{Bridgecrew} scans the file and triggers on misconfigurations that may lead to security issues.
 The results of the scans and the issues found are noted in the pull request comments. Automated remediation and merging of these issues may be possible in
 some cases.
